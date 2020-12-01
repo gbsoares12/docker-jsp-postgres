@@ -1,6 +1,6 @@
 O objetivo desse trabalho é permitir que os alunos pratiquem a criação, configuração e uso do Docker.
 
-O trabalho será feito em duplas. Serão desenvolvidos múltiplos containers (Docker Compose):
+Serão desenvolvidos múltiplos containers (Docker Compose):
 PostgreSQL, pgAdmin4 e um servidor web em Java (p.e. Tomcat, Jetty, etc).
 
 Entregar uma pasta compactada, contendo na raiz dessa pasta o arquivo YAML com a descrição dos
