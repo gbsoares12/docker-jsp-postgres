@@ -25,15 +25,15 @@ CREATE TABLE oscares_melhor_filme(
 );
 
 CREATE TABLE atores (
-   cd_ator VARCHAR 		 NOT NULL,
+   cd_ator INTEGER 		 NOT NULL,
    ds_nome VARCHAR(50)   NOT NULL,
    CONSTRAINT atores_pk PRIMARY KEY (cd_ator)
 );
 
 CREATE TABLE elenco(
-	cd_ator	 	 VARCHAR  	NOT NULL,
+	cd_ator	 	 INTEGER  	NOT NULL,
 	cd_filme 	 INTEGER	NOT NULL,
-	sn_principal VARCHAR 	NOT NULL,
+	sn_principal INTEGER 	NOT NULL,
 		PRIMARY KEY(cd_ator, cd_filme),
 		CONSTRAINT fk_atores 
 			FOREIGN KEY (cd_ator) REFERENCES atores (cd_ator),
@@ -64,7 +64,7 @@ CREATE TABLE servicos_autorizados(
 		CONSTRAINT fk_servicos
 			FOREIGN KEY (cd_servico) REFERENCES servicos (cd_servico)
 );
-/* PRIMARY KEY(cd_usuario, cd_servico),*/
+
 CREATE TABLE servicos_usados(
 	cd_usuario	INTEGER 	NOT NULL,
 	cd_servico	INTEGER		NOT NULL,
@@ -143,16 +143,7 @@ INSERT INTO "atores" (cd_ator,ds_nome) VALUES (71,'Derek'),(72,'Kyle'),(73,'Mara
 INSERT INTO "atores" (cd_ator,ds_nome) VALUES (81,'Veronica'),(82,'Shannon'),(83,'Ramona'),(84,'Hanae'),(85,'Cleo'),(86,'Bree'),(87,'Kasper'),(88,'Bert'),(89,'Sylvester'),(90,'Tana');
 INSERT INTO "atores" (cd_ator,ds_nome) VALUES (91,'Herman'),(92,'Owen'),(93,'Garth'),(94,'Xanthus'),(95,'Lane'),(96,'Boris'),(97,'Lynn'),(98,'Chancellor'),(99,'Adam'),(100,'Imelda');
 
-INSERT INTO "elenco" (cd_ator,cd_filme,sn_principal) VALUES (1,1,'Stanley'),(2,2,'Cruz'),(3,3,'Rosa'),(4,4,'Donovan'),(5,5,'Guy'),(6,6,'Bailey'),(7,7,'Merrill'),(8,8,'Chen'),(9,9,'Reed'),(10,10,'Harrington');
-INSERT INTO "elenco" (cd_ator,cd_filme,sn_principal) VALUES (11,11,'Hanson'),(12,12,'Lindsay'),(13,13,'Schroeder'),(14,14,'Barton'),(15,15,'Conley'),(16,16,'Russell'),(17,17,'Patton'),(18,18,'Ingram'),(19,19,'Miranda'),(20,20,'Sosa');
-INSERT INTO "elenco" (cd_ator,cd_filme,sn_principal) VALUES (21,21,'Mcbride'),(22,22,'Norris'),(23,23,'Bean'),(24,24,'Morrison'),(25,25,'Hayden'),(26,26,'Black'),(27,27,'Carney'),(28,28,'Foreman'),(29,29,'Delacruz'),(30,30,'Downs');
-INSERT INTO "elenco" (cd_ator,cd_filme,sn_principal) VALUES (31,31,'Sutton'),(32,32,'Fernandez'),(33,33,'Dennis'),(34,34,'Hernandez'),(35,35,'Tucker'),(36,36,'Martin'),(37,37,'Alvarez'),(38,38,'Acevedo'),(39,39,'Bradley'),(40,40,'Hays');
-INSERT INTO "elenco" (cd_ator,cd_filme,sn_principal) VALUES (41,41,'Acevedo'),(42,42,'Holder'),(43,43,'Richardson'),(44,44,'Johnson'),(45,45,'Wilcox'),(46,46,'Spencer'),(47,47,'Jimenez'),(48,48,'Torres'),(49,49,'Woods'),(50,50,'Preston');
-INSERT INTO "elenco" (cd_ator,cd_filme,sn_principal) VALUES (51,51,'Ferrell'),(52,52,'Walls'),(53,53,'Reilly'),(54,54,'Velazquez'),(55,55,'Bernard'),(56,56,'Richmond'),(57,57,'Webb'),(58,58,'Roberts'),(59,59,'Watson'),(60,60,'Hopkins');
-INSERT INTO "elenco" (cd_ator,cd_filme,sn_principal) VALUES (61,61,'Hahn'),(62,62,'Wall'),(63,63,'Michael'),(64,64,'Tyler'),(65,65,'Mcclure'),(66,66,'Mack'),(67,67,'Bradford'),(68,68,'Arnold'),(69,69,'Hatfield'),(70,70,'Osborne');
-INSERT INTO "elenco" (cd_ator,cd_filme,sn_principal) VALUES (71,71,'Thompson'),(72,72,'Ruiz'),(73,73,'Reilly'),(74,74,'Maddox'),(75,75,'Shannon'),(76,76,'Soto'),(77,77,'Pearson'),(78,78,'Macias'),(79,79,'Carney'),(80,80,'Bond');
-INSERT INTO "elenco" (cd_ator,cd_filme,sn_principal) VALUES (81,81,'Lewis'),(82,82,'Roman'),(83,83,'Herrera'),(84,84,'Farmer'),(85,85,'Walker'),(86,86,'Summers'),(87,87,'Allison'),(88,88,'Shannon'),(89,89,'Henry'),(90,90,'Reese');
-INSERT INTO "elenco" (cd_ator,cd_filme,sn_principal) VALUES (91,91,'Fischer'),(92,92,'Ellison'),(93,93,'Poole'),(94,94,'Norton'),(95,95,'Ferguson'),(96,96,'Wallace'),(97,97,'Brewer'),(98,98,'Allen'),(99,99,'Monroe'),(100,100,'Hendricks');
+INSERT INTO "elenco" (cd_ator,cd_filme,sn_principal) VALUES (1,1,1),(2,2,2),(3,3,3),(4,4,4),(5,5,5),(6,6,6),(7,7,7),(8,8,8),(9,9,9),(10,10,10),(11,11,11),(12,12,12),(13,13,13),(14,14,14),(15,15,15),(16,16,16),(17,17,17),(18,18,18),(19,19,19),(20,20,20),(21,21,21),(22,22,22),(23,23,23),(24,24,24),(25,25,25),(26,26,26),(27,27,27),(28,28,28),(29,29,29),(30,30,30),(31,31,31),(32,32,32),(33,33,33),(34,34,34),(35,35,35),(36,36,36),(37,37,37),(38,38,38),(39,39,39),(40,40,40),(41,41,41),(42,42,42),(43,43,43),(44,44,44),(45,45,45),(46,46,46),(47,47,47),(48,48,48),(49,49,49),(50,50,50),(51,51,51),(52,52,52),(53,53,53),(54,54,54),(55,55,55),(56,56,56),(57,57,57),(58,58,58),(59,59,59),(60,60,60),(61,61,61),(62,62,62),(63,63,63),(64,64,64),(65,65,65),(66,66,66),(67,67,67),(68,68,68),(69,69,69),(70,70,70),(71,71,71),(72,72,72),(73,73,73),(74,74,74),(75,75,75),(76,76,76),(77,77,77),(78,78,78),(79,79,79),(80,80,80),(81,81,81),(82,82,82),(83,83,83),(84,84,84),(85,85,85),(86,86,86),(87,87,87),(88,88,88),(89,89,89),(90,90,90),(91,91,91),(92,92,92),(93,93,93),(94,94,94),(95,95,95),(96,96,96),(97,97,97),(98,98,98),(99,99,99),(100,100,100);
 
 INSERT INTO "servicos" (cd_servico,ds_nome) VALUES (1,'Stella'),(2,'Sawyer'),(3,'Hedwig'),(4,'Alyssa'),(5,'Priscilla'),(6,'Jack'),(7,'Jasper'),(8,'Hu'),(9,'Brett'),(10,'Carla');
 INSERT INTO "servicos" (cd_servico,ds_nome) VALUES (11,'Britanni'),(12,'Lionel'),(13,'Barclay'),(14,'Phyllis'),(15,'Karleigh'),(16,'Mona'),(17,'Dale'),(18,'Pascale'),(19,'Ralph'),(20,'Wyoming');
