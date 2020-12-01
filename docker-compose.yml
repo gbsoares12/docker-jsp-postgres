@@ -11,7 +11,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - C:/docker-jsp-postgres/database/data:/var/lib/postgresql/data 
+      - ./database/data:/var/lib/postgresql/data 
     networks:
       - postgres-compose-network
       
@@ -30,7 +30,7 @@ services:
   web: 
     image: tomcat:9.0.1-jre8-alpine
     volumes:
-      - C:/docker-jsp-postgres/webapp:/usr/local/tomcat/webapps/trabalho_a2
+      - ./webapp:/usr/local/tomcat/webapps/trabalho_a2
     command: catalina.sh run
     depends_on: 
       - postgres-compose
