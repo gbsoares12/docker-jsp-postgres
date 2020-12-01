@@ -1,0 +1,44 @@
+version: '3.7'
+
+services:
+  postgres-compose:
+    image: postgres:12
+    container_name: postgres-compose
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: trabalho2
+    ports:
+      - "5432:5432"
+    volumes:
+      - C:/docker-jsp-postgres/database/data:/var/lib/postgresql/data 
+    networks:
+      - postgres-compose-network
+      
+  pgadmin-compose:
+    image: dpage/pgadmin4:4.28
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "postgres@email.com"
+      PGADMIN_DEFAULT_PASSWORD: "postgres"
+    ports:
+      - "16543:80"
+    depends_on:
+      - postgres-compose
+    networks:
+      - postgres-compose-network
+
+  web: 
+    image: tomcat:9.0.1-jre8-alpine
+    volumes:
+      - C:/docker-jsp-postgres/webapp:/usr/local/tomcat/webapps/trabalho_a2
+    command: catalina.sh run
+    depends_on: 
+      - postgres-compose
+    ports:
+      - "8080:8080"
+    networks:
+      - postgres-compose-network
+      
+networks: 
+  postgres-compose-network:
+    driver: bridge
